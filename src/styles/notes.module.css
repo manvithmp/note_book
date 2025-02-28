@@ -1,0 +1,128 @@
+.notesWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+  background-color: #dae5f5;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  transition: 0.3s;
+  padding: 0;
+  margin: 0;
+}
+
+.notesHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 16px;
+  color: #ffffff;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+}
+
+.initialsCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.groupTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.notesArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.noteItem {
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.noteText {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.noteDate {
+  font-size: 14px;
+  color: #666;
+  text-align: right;
+}
+
+.notesInputContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  position: relative;
+}
+
+.inputContainer {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.inputInner {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.inputField {
+  flex: 1;
+  min-height: 100px;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-color: #f1f1f1;
+  resize: none;
+}
+
+.enterButton {
+  background-color: #001f8b;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disabledButton {
+  color: rgb(255, 255, 255);
+  background-color: #878787;
+}

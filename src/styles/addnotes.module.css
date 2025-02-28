@@ -1,0 +1,113 @@
+.container1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); 
+}
+
+.container1 .box {
+    border-radius: 12px;
+    width: 400px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.box h2 {
+    color: #333;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.box label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #555;
+}
+
+.box input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin-top: 5px;
+    color: #000000;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+.colorOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.colorOptions input[type="radio"] {
+    display: none;
+}
+
+.colorOptions span {
+    width: 35px;
+  height: 35px;
+    gap: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    border: 3px solid transparent;
+}
+
+.colorOptions input[type="radio"]#purple:checked + span,
+.colorOptions span.purple { background: #d782d9; }
+
+.colorOptions input[type="radio"]#pink:checked + span,
+.colorOptions span.pink { background: #f3a2f8; }
+
+.colorOptions input[type="radio"]#cyan:checked + span,
+.colorOptions span.cyan { background: #66e1e5; }
+
+.colorOptions input[type="radio"]#orange:checked + span,
+.colorOptions span.orange { background: #ff9a72; }
+
+.colorOptions input[type="radio"]#blue:checked + span,
+.colorOptions span.blue { background: #267eff; }
+
+.colorOptions input[type="radio"]#grey:checked + span,
+.colorOptions span.grey { background: #7289da; }
+
+
+.colorOptions input[type="radio"]:checked + span {
+    border: 3px solid black;
+    transform: scale(1.1);
+}
+.colorOptions span:hover {
+    transform: scale(1.1);
+}
+
+.box .createbtn {
+    background-color: #002080;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.box .createbtn:hover {
+    background-color: #001045;
+}
