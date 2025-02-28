@@ -265,7 +265,7 @@ body {
   .add-button {
     position: fixed;
     bottom: 15px;
-    right: 15px;
+    left: 15px;
     width: 45px;
     height: 45px;
   }

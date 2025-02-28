@@ -123,7 +123,10 @@ export default function Notes({ group, onUpdateGroup }) {
           </div>
         </div>
       </div>
-      <div className={`add-button ${isMenuActive ? 'active' : ''}`}>
+      <div
+        className="add-button"
+        style={{ display: isMenuActive ? 'flex' : 'none' }}
+      >
         <div className="plus-icon">
           <span></span>
           <span></span>
