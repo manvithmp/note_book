@@ -19,11 +19,47 @@
   display: flex;
   padding: 16px;
   color: #ffffff;
+  z-index: 1;
 }
 
 .headerContent {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  display: none; 
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .initialsCircle {
@@ -127,24 +163,108 @@
   background-color: #878787;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 780px) {
   .notesWrapper {
-    width: 100vw; 
+    width: 100%;
     height: 100vh;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    transition: 0.3s ease;
   }
-  
+
+  .notesWrapper.move-right {
+    transform: translateX(80%);
+  }
+
   .notesHeader {
-    width: 100%;
-    position: sticky;
-    top: 0;
+    padding: 12px;
+    height: auto;
   }
-  
+
+  .headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .hamburger {
+    display: block;
+    z-index: 1000;
+    order: 1;
+    margin-right: 10px;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    order: 2;
+  }
+
+  .initialsCircle {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  .groupTitle {
+    font-size: 16px;
+    order: 3;
+  }
+
   .notesArea {
-    height: calc(100vh - 150px);
-    overflow-y: auto;
+    padding: 15px;
+    height: calc(100vh - 180px);
+    padding-bottom: 60px;
+  }
+
+  .noteItem {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .noteText {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .noteDate {
+    font-size: 12px;
+  }
+
+  .notesInputContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+
+  .inputContainer {
+    padding: 8px;
+  }
+
+  .inputInner {
+    width: 100%;
+  }
+
+  .inputField {
+    min-height: 80px;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .enterButton {
+    min-height: 80px;
+    padding: 8px 12px;
+    font-size: 16px;
   }
 }
-

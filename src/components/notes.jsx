@@ -19,23 +19,13 @@ export default function Notes({ group, onUpdateGroup }) {
     setNotes(group.notes || []);
   }, [group]);
 
-  useEffect(() => {
-    const container = document.querySelector('.container');
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'classList') {
-          setIsMenuActive(container.classList.contains('move-right'));
-        }
-      });
-    });
-
-    observer.observe(container, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const toggleMenu = () => {
+    const offscreen = document.querySelector('.offscreen');
+    if (offscreen) {
+      offscreen.classList.toggle('active');
+      setIsMenuActive(!isMenuActive);
+    }
+  };
 
   const handleAddNote = () => {
     const trimmedText = noteText.trim();
@@ -79,51 +69,66 @@ export default function Notes({ group, onUpdateGroup }) {
   };
 
   return (
-    <div className={`${styles.notesWrapper} ${isMenuActive ? styles['move-right'] : ''}`}>
-      <div
-        className={styles.notesHeader}
-        style={{ backgroundColor: group.color }}
-      >
-        <div className={styles.headerContent}>
-          <div className={styles.initialsCircle}>{getInitials(group.groupName)}</div>
-          <div className={styles.groupTitle}>{group.groupName}</div>
-        </div>
-      </div>
-
-      <div className={styles.notesArea}>
-        {notes.map((note, index) => (
-          <div key={index} className={styles.noteItem}>
-            <div className={styles.noteText}>{note.note}</div>
-            <div className={styles.noteDate}>
-              {note.time} | {note.date}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.notesInputContainer}>
+    <>
+      <div className={`${styles.notesWrapper} ${isMenuActive ? styles['move-right'] : ''}`}>
         <div
-          className={styles.inputContainer}
+          className={styles.notesHeader}
           style={{ backgroundColor: group.color }}
         >
-          <div className={styles.inputInner}>
-            <textarea
-              className={styles.inputField}
-              placeholder="Enter your text here..."
-              value={noteText}
-              onChange={(e) => setNoteText(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
-            <button
-            className={`${styles.enterButton} ${!noteText.trim() ? styles.disabledButton : ''}`}
-            onClick={handleAddNote}
-            disabled={!noteText.trim()}
+          <div className={styles.headerContent}>
+            <div className={`${styles.hamburger} ${isMenuActive ? styles.active : ''}`} onClick={toggleMenu}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div className={styles.headerRight}>
+              <div className={styles.initialsCircle}>{getInitials(group.groupName)}</div>
+              <div className={styles.groupTitle}>{group.groupName}</div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.notesArea}>
+          {notes.map((note, index) => (
+            <div key={index} className={styles.noteItem}>
+              <div className={styles.noteText}>{note.note}</div>
+              <div className={styles.noteDate}>
+                {note.time} | {note.date}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.notesInputContainer}>
+          <div
+            className={styles.inputContainer}
+            style={{ backgroundColor: group.color }}
           >
-            &#10148;
-          </button>
+            <div className={styles.inputInner}>
+              <textarea
+                className={styles.inputField}
+                placeholder="Enter your text here..."
+                value={noteText}
+                onChange={(e) => setNoteText(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+              <button
+                className={`${styles.enterButton} ${!noteText.trim() ? styles.disabledButton : ''}`}
+                onClick={handleAddNote}
+                disabled={!noteText.trim()}
+              >
+                &#10148;
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className={`add-button ${isMenuActive ? 'active' : ''}`}>
+        <div className="plus-icon">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </>
   );
 }
