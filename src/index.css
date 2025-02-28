@@ -201,25 +201,78 @@ body {
 
 @media screen and (max-width: 480px) {
   body {
-    display: flex;
-    flex-direction: column;
     margin: 0;
     padding: 0;
-    height: 100px;
-    width: 100px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
     overflow: hidden; 
   }
 
   .offscreen {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    box-shadow: none;
     left: 0;
-    box-shadow: none; /* Remove any unnecessary styles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
   }
 
-  .container,
-  .add-button,
-  .hamburger {
-    display: none; /* Hide everything except the offscreen menu */
+  .sidebar-header {
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+  .grouplist {
+    width: 100%;
+    padding: 0;
+  }
+
+  .groupitem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .initials-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .group-name {
+    font-size: 16px;
+  }
+
+  .add-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #10006c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .hamburger,
+  .container {
+    display: none; 
   }
 }
