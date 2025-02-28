@@ -1,19 +1,18 @@
-:root {
+
+
+body {
+  margin: 0;
+  background-color: #dae5f5;
+  min-width: 320px;
+  min-height: 100vh;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #dae5f5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 .offscreen {
@@ -198,4 +197,29 @@ body {
   top: 10px;
   font-size: 28px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    width: 100px;
+    overflow: hidden; 
+  }
+
+  .offscreen {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    box-shadow: none; /* Remove any unnecessary styles */
+  }
+
+  .container,
+  .add-button,
+  .hamburger {
+    display: none; /* Hide everything except the offscreen menu */
+  }
 }

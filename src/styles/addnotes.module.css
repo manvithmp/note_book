@@ -111,3 +111,16 @@
 .box .createbtn:hover {
     background-color: #001045;
 }
+
+@media screen and (max-width: 480px) {
+
+    .container1 .box {
+        width: 60%;
+        
+    }
+
+    .box input[type="text"] {
+        width: 100%;
+    }
+
+}
