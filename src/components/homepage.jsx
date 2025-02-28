@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AddNotes from './addnotes';
 import Notes from './notes';
-import homeImage from '../src/assets/home.png';
+import homeImage from '/src/assets/home.png';
 
 export default function HomePage() {
   const [modal, setModal] = useState(false);
