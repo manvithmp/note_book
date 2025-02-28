@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/notes.module.css';
+import AddNotes from './addnotes';
 
 const getInitials = (name) => {
   return name
@@ -10,10 +11,11 @@ const getInitials = (name) => {
     .substring(0, 2);
 };
 
-export default function Notes({ group, onUpdateGroup }) {
+export default function Notes({ group, onUpdateGroup, existingGroups }) {
   const [noteText, setNoteText] = useState('');
   const [notes, setNotes] = useState(group.notes || []);
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setNotes(group.notes || []);
@@ -66,6 +68,11 @@ export default function Notes({ group, onUpdateGroup }) {
       e.preventDefault();
       handleAddNote();
     }
+  };
+
+  const handleCreateGroup = (newGroup) => {
+    console.log('New group created:', newGroup);
+    setIsModalOpen(false);
   };
 
   return (
@@ -123,15 +130,25 @@ export default function Notes({ group, onUpdateGroup }) {
           </div>
         </div>
       </div>
+
       <div
         className="add-button"
         style={{ display: isMenuActive ? 'flex' : 'none' }}
+        onClick={() => setIsModalOpen(true)}
       >
         <div className="plus-icon">
           <span></span>
           <span></span>
         </div>
       </div>
+
+      {isModalOpen && (
+        <AddNotes
+          onCreate={handleCreateGroup}
+          existingGroups={existingGroups}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
     </>
   );
 }

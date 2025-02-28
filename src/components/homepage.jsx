@@ -116,6 +116,7 @@ export default function HomePage() {
             group={selectedGroup}
             onUpdateGroup={handleUpdateGroup}
           />
+          
         </div>
       ) : (
         <div className="container">
@@ -144,6 +145,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
+      
     </>
   );
 }
